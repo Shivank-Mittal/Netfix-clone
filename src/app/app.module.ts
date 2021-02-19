@@ -9,13 +9,19 @@ import { WelcomePageComponent } from './Pages/welcome-page/welcome-page/welcome-
 import { SilderComponent } from './Components/silder/silder.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './Components/register/register.component';
+import { CredentialsComponent } from './Pages/credentials/credentials.component';
+import { FormsModule } from '@angular/forms';
+import { AutService } from './Services/auth-service/aut.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomePageComponent,
-    SilderComponent
+    SilderComponent,
+    RegisterComponent,
+    CredentialsComponent
   ],
   imports: [
     BrowserModule,
@@ -23,10 +29,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MaterialModule,
     SlickCarouselModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
 
   ],
-  providers: [],
+  providers: [AutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
