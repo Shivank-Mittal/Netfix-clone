@@ -10,6 +10,8 @@ export class CredentialsComponent implements OnInit {
 
   netflix_background = netflix_background;
   netflix_logo = netfix_logo;
+
+  isRegesterd: boolean = true;
   constructor() { }
 
   ngOnInit(): void {

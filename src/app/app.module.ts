@@ -13,6 +13,7 @@ import { RegisterComponent } from './Components/register/register.component';
 import { CredentialsComponent } from './Pages/credentials/credentials.component';
 import { FormsModule } from '@angular/forms';
 import { AutService } from './Services/auth-service/aut.service';
+import { LoginComponent } from './Components/login/login.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AutService } from './Services/auth-service/aut.service';
     WelcomePageComponent,
     SilderComponent,
     RegisterComponent,
-    CredentialsComponent
+    CredentialsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

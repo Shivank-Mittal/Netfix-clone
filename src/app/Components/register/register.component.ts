@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AutService } from 'src/app/Services/auth-service/aut.service';
-import { User } from '../../Model/User';
+import { User, UserAddress, UserContact } from '../../Model/User';
 
 @Component({
   selector: 'app-register',
@@ -11,6 +11,7 @@ import { User } from '../../Model/User';
 export class RegisterComponent implements OnInit {
 
   subs: Subscription[] = [];
+  maxDate = new Date();
   registerUserData =
     {
       email: "",
@@ -24,6 +25,18 @@ export class RegisterComponent implements OnInit {
       }
     }
 
+  registerUserConatct = {
+    name: "",
+    birthDate: "",
+    gender: ""
+  }
+  registerUserAddress = {
+    country: "",
+    area: "",
+    city: "",
+    number: ""
+  }
+
   constructor(private auth: AutService) { }
 
   ngOnInit(): void {
@@ -31,12 +44,17 @@ export class RegisterComponent implements OnInit {
 
   registerUser() {
     if (this.registerUserData.password === this.registerUserData.confirm_password) {
-      this.subs.push(
-        this.auth.registerUser(this.registerUserData.getUserData()).subscribe(
-          (data) => { console.log(data) },
-          (error) => { console.log(error) }
-        )
-      )
+      let user = {
+        ...this.registerUserData.getUserData(), ...this.registerUserConatct, ...this.registerUserAddress
+      }
+      console.log(user)
+      // ! use below code when calling the api
+      // this.subs.push(
+      //   this.auth.registerUser(user).subscribe(
+      //     (data) => { console.log(data) },
+      //     (error) => { console.log(error) }
+      //   )
+      // )
     }
   }
 
