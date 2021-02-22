@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MovieService } from 'src/app/Services/movie-service/movie.service';
 
 import { Movies } from '../../Model/movie';
@@ -13,10 +14,18 @@ export class SilderComponent implements OnInit {
   @Input() movies: Movies;
   @Input() title: string;
 
-  constructor(private movieService: MovieService) { }
+  wait = true
+
+  constructor(private movieService: MovieService, private router: Router) { }
 
   ngOnInit(): void {
     this.movieService.getlatestMovies();
+
   }
+
+  showMovieDetails(movieTitle) {
+    this.router.navigate(['/movieDetails', movieTitle]);
+  }
+
 
 }

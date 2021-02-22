@@ -14,6 +14,7 @@ import { CredentialsComponent } from './Pages/credentials/credentials.component'
 import { FormsModule } from '@angular/forms';
 import { AutService } from './Services/auth-service/aut.service';
 import { LoginComponent } from './Components/login/login.component';
+import { MovieDetailsComponent } from './Pages/movie-details/movie-details.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { LoginComponent } from './Components/login/login.component';
     SilderComponent,
     RegisterComponent,
     CredentialsComponent,
-    LoginComponent
+    LoginComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,

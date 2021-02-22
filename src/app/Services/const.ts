@@ -10,11 +10,12 @@ const app_data = {
 const endPoints = {
     latestMovies: "http://www.omdbapi.com/?s=Avengers&apikey=af8b62df",
     favorateMovies: "http://www.omdbapi.com/?s=The+Dark+Knight&apikey=af8b62df",
+    movieDeatils: "http://www.omdbapi.com/?t=",
     registerUser: "http://localhost:3000/api/register",
     loginUser: "http://localhost:3000/api/login"
 }
 
 export const { netfix_logo, netflix_background, avatar, apikey } = app_data;
 
-export const { latestMovies, favorateMovies, registerUser, loginUser } = endPoints;
+export const { latestMovies, favorateMovies, movieDeatils, registerUser, loginUser } = endPoints;
 

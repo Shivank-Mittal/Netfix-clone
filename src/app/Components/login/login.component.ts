@@ -30,15 +30,19 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser() {
-    if (this.loginUserData.password === this.loginUserData.confirm_password) {
-      this.subs.push(
-        this.auth.loginUser(this.loginUserData.getUserData()).subscribe(
-          (data) => { console.log(data) },
-          (error) => { console.log(error) },
-          () => this.router.navigate(['/welcome'])
-        )
-      )
-    }
+
+    //! Use below code in production
+    // if (this.loginUserData.password === this.loginUserData.confirm_password) {
+    //   this.subs.push(
+    //     this.auth.loginUser(this.loginUserData.getUserData()).subscribe(
+    //       (data) => { console.log(data) },
+    //       (error) => { console.log(error) },
+    //       () => this.router.navigate(['/welcome'])
+    //     )
+    //   )
+    // }
+
+    this.router.navigate(['/welcome']);
   }
 
 

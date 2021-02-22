@@ -5,7 +5,10 @@
     <div class="thumbnails">
       <ngx-slick-carousel [config]="sliderConfig" class="carousel">
         <div class="slick-item" *ngFor="let movie of movies.Search" ngxSlickItem>
-          <img src="{{movie?.Poster}}" alt="m.Title">
+          <div *ngIf="wait">
+            <a title="{{movie.Title}}" (click)="showMovieDetails(movie.Title)"><img src="{{movie?.Poster}}"
+                alt="{{movie.Title}}"></a>
+          </div>
         </div>
       </ngx-slick-carousel>
     </div>

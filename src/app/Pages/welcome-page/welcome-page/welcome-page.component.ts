@@ -36,16 +36,25 @@ export class WelcomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.subs.push(
-      this.movieService.getlatestMovies().subscribe(data => {
-        this.latest = data; console.log(data);
-        let headerBG = this.latest.Search[2]
-        this.headerBGUrl = headerBG.Poster;
-        this.headerBGTitle = headerBG.Title
+      this.movieService.getlatestMovies().subscribe(
+        (data) => {
+          this.latest = data; console.log(`Latest movie are : ${data}`);
+          let headerBG = this.latest.Search[2]
+          this.headerBGUrl = headerBG.Poster;
+          this.headerBGTitle = headerBG.Title
 
-      })
+        },
+        (error) => console.log(`Error in loding latestMovies is : ${error}`),
+        () => console.log(`Latest movies load completed`)
+      )
     );
     this.subs.push(
-      this.movieService.getFavorateMovies().subscribe(data => this.favorate = data)
+      this.movieService.getFavorateMovies().subscribe(
+        data => this.favorate = data,
+
+        (error) => console.log(`Error in loding FavorateMovies is : ${error}`),
+        () => console.log(`Favorate movies load completed`)
+      )
     );
   }
 

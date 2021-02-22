@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { latestMovies, favorateMovies } from '../const';
+import { latestMovies, favorateMovies, movieDeatils, apikey } from '../const';
 import { MovieEntity, Movies } from '../../Model/movie'
 
 @Injectable({
@@ -18,5 +18,9 @@ export class MovieService {
 
   getFavorateMovies(): Observable<Movies> {
     return this.http.get<Movies>(favorateMovies)
+  }
+
+  getMovieDetails(movieTitle) {
+    return this.http.get<MovieEntity>(movieDeatils + movieTitle + "&apikey=" + apikey);
   }
 }
