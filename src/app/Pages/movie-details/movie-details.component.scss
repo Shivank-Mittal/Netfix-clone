@@ -74,6 +74,8 @@
         }
 
         .movie-Poster{
+            display: flex;
+            flex-direction: column;
             img{
                 height: 40vh;
                 box-shadow: -4px 4px 5px 0;

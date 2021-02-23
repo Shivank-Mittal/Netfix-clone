@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { AutService } from './Services/auth-service/aut.service';
 import { LoginComponent } from './Components/login/login.component';
 import { MovieDetailsComponent } from './Pages/movie-details/movie-details.component';
+import { StarComponent } from './Components/star/star.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MovieDetailsComponent } from './Pages/movie-details/movie-details.compo
     RegisterComponent,
     CredentialsComponent,
     LoginComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    StarComponent
   ],
   imports: [
     BrowserModule,

@@ -60,7 +60,7 @@
     <!-- header main ends here -->
   </div>
 
-  <div class="body" style="margin-top: 32rem;">
+  <div class="body" style="margin-top: 32rem;" *ngIf="loadSider">
     <app-silder title="Last seen" [movies]="favorate" [sliderConfig]="sliderConfig"></app-silder>
     <app-silder title="New" [movies]="latest" [sliderConfig]="sliderConfig"></app-silder>
     <app-silder title="Recommendations" [movies]="favorate" [sliderConfig]="sliderConfig"></app-silder>

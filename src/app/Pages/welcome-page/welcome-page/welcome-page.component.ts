@@ -15,6 +15,7 @@ export class WelcomePageComponent implements OnInit {
   subs: Subscription[] = [];
 
   sticky = false;
+  loadSider = false;
 
   netflix_image = netfix_logo;
   avatar = avatar;
@@ -45,7 +46,10 @@ export class WelcomePageComponent implements OnInit {
 
         },
         (error) => console.log(`Error in loding latestMovies is : ${error}`),
-        () => console.log(`Latest movies load completed`)
+        () => {
+          console.log(`Latest movies load completed`)
+          this.loadSider = true;
+        }
       )
     );
     this.subs.push(
@@ -59,8 +63,6 @@ export class WelcomePageComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
     this.subs.map(s => s.unsubscribe());
   }
 
