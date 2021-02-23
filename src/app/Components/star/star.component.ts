@@ -33,4 +33,5 @@ export class StarComponent implements OnInit {
     this.rating = i + 1
   }
 
+
 }

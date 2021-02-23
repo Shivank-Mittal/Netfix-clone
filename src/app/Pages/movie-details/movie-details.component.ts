@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from 'src/app/Services/movie-service/movie.service';
 import { MovieEntity } from '../../Model/movie';
 
@@ -17,7 +17,7 @@ export class MovieDetailsComponent implements OnInit {
   movieEntity: MovieEntity;
   netflixLogo = netfix_logo;
 
-  constructor(private activeRoute: ActivatedRoute, private movieService: MovieService) { }
+  constructor(private activeRoute: ActivatedRoute, private router: Router, private movieService: MovieService) { }
 
 
   ngOnInit(): void {
@@ -49,6 +49,10 @@ export class MovieDetailsComponent implements OnInit {
     //Called once, before the instance is destroyed.
     //Add 'implements OnDestroy' to the class.
     this.subs.forEach(s => s.unsubscribe())
+  }
+
+  goToWelcomeScreen() {
+    this.router.navigate(['/welcome'])
   }
 
 }
