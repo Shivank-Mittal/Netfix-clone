@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AutService } from 'src/app/Services/auth-service/aut.service';
 import { User, UserAddress, UserContact } from '../../Model/User';
@@ -9,6 +9,8 @@ import { User, UserAddress, UserContact } from '../../Model/User';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+
+  @Output() isRegesterdsetter: EventEmitter<any> = new EventEmitter();
 
   subs: Subscription[] = [];
   maxDate = new Date();
@@ -62,6 +64,10 @@ export class RegisterComponent implements OnInit {
     //Called once, before the instance is destroyed.
     //Add 'implements OnDestroy' to the class.
     this.subs.forEach(sub => sub.unsubscribe())
+  }
+
+  signIn(): void {
+    this.isRegesterdsetter.emit();
   }
 
 }

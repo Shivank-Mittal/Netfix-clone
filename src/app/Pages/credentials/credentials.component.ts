@@ -17,4 +17,9 @@ export class CredentialsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  isRegesterdsetter() {
+    console.log("Testing Child to parrent")
+    this.isRegesterd = !this.isRegesterd;
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AutService } from 'src/app/Services/auth-service/aut.service';
@@ -10,6 +10,7 @@ import { User } from '../../Model/User';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  @Output() isRegesterdsetter: EventEmitter<any> = new EventEmitter();
   subs: Subscription[] = [];
   loginUserData =
     {
@@ -45,5 +46,8 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/welcome']);
   }
 
+  registerData() {
+    this.isRegesterdsetter.emit();
+  }
 
 }
